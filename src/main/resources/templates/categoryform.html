@@ -10,7 +10,7 @@
 <br/>
 
 <form action="#"
-      th:action="@{/processcategory}"
+      th:action="@{/processcategoryform}"
       th:object="${category}"
       method="post">
     <div class="form-group">
@@ -24,6 +24,12 @@
         <input type="submit" class="btn btn-primary mb-2" value="Submit" />
     </div>
 </form>
+
+<div class="row">
+    <div class="col-md-4" th:each="category : ${categories}">
+        <a th:text="${category.name}"></a>
+    </div>
+</div>
 
 </body>
 </html>

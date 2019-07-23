@@ -53,12 +53,12 @@ public class HomeController {
             return "categoryform";
         }
         categoryRepository.save(category);
-        return "redirect:/add";
+        return "redirect:/";
     }
 
     @RequestMapping("/update/{id}")
     public String updateCar(@PathVariable("id") long id, Model model) {
-        model.addAttribute("categories", categoryRepository.findAll());
+//        model.addAttribute("categories", categoryRepository.findAll());
         model.addAttribute("car", carRepository.findById(id).get());
         return "carform";
     }

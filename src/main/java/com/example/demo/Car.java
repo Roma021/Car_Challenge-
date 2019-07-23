@@ -20,6 +20,11 @@ public class Car {
 
     }
 
+    public Car(Category category) {
+        this.category = category;
+    }
+
+
     public long getId() {
         return id;
     }

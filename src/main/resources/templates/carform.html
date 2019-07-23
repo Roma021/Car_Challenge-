@@ -6,16 +6,15 @@
 </head>
 <body>
 <form action="#"
-      th:action="@{/add}"
+      th:action="@{/process}"
       th:object="${car}" method="post" enctype="multipart/form-data">
 
     <input type="hidden" th:field="*{id}" />
 
-    Category:<select th:field="*{category}" class="form-control input-md">
-    <option th:each="eachCategory : ${categories}"
-            th:value="${eachCategory.id}">[[${eachCategory.name}]]</option>
-
-</select><br/>
+    <select th:field="*{category}" class="form-control input-md">
+        <option th:each="eachCategory : ${categories}"
+                th:value="${eachCategory.id}">[[${eachCategory.name}]]</option>
+    </select><br>
 
     Type : <input type="text" th:field="*{type}" />
     <span th:if="${#fields.hasErrors('type')}"
