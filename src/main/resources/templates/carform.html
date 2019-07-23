@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/add}"
+      th:object="${car}" method="post" enctype="multipart/form-data">
+
+    <input type="hidden" th:field="*{id}" />
+
+    Category:<select th:field="*{category}" class="form-control input-md">
+    <option th:each="eachCategory : ${categories}"
+            th:value="${eachCategory.id}">[[${eachCategory.name}]]</option>
+
+</select><br/>
+
+    Type : <input type="text" th:field="*{type}" />
+    <span th:if="${#fields.hasErrors('type')}"
+          th:errors="*{type}"></span><br/>
+
+    Model :<input type="text" th:field="*{model}" />
+    <span th:if="${#fields.hasErrors('model')}"
+          th:errors="*{model}"></span><br/>
+
+    Year :<input type="text" th:field="*{year}" />
+    <span th:if="${#fields.hasErrors('year')}"
+          th:errors="*{year}"></span><br/>
+
+    MPG :<input type="text" th:field="*{mpg}" />
+    <span th:if="${#fields.hasErrors('mpg')}"
+          th:errors="*{mpg}"></span><br/>
+
+
+    <input type="submit" value="Submit" />
+
+
+</form>
+</body>
+</html>
